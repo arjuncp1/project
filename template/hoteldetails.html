@@ -1,0 +1,28 @@
+{% extends 'nav.html' %}
+        
+{% block nav %}
+<style>
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+</style>
+
+
+<div class="container">
+    <h1>Details</h1>
+<form action="" class="border shadow p-2 m-2 rounded w-100" method="post">
+    {% csrf_token %}
+    <table class="table ">
+        {{form.as_table}}
+       </table>
+       <button class="btn btn-outline-success" type="submit">submit</button>
+   </form>
+</div>
+{% endblock nav %}
+
+

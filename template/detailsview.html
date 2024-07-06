@@ -1,0 +1,43 @@
+{% extends 'nav.html' %}
+        
+{% block nav %}
+<style>
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+</style>
+
+
+<div class="container">
+    <h1 style="font-weight: 600;">List Details</h1>
+<form action="" class="border shadow p-2 m-2 rounded w-100" method="post">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Place</th>
+            <th>Phone</th>
+            <th>Email</th>            
+        </tr>
+       {% for data in data %}
+       <tr>
+        <th>{{data.name}}</th>
+        <th>{{data.place}}</th>
+        <th>{{data.phone}}</th>
+        <th>{{data.email}}</th>
+        <th>
+            <div>
+                <a href="{% url 'ddetail' data.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'edetail' data.id %}" class="btn btn-primary">Update</a>
+            </div>
+        </th>
+    </tr>
+       {% endfor %}
+
+    </table>
+</div>
+{% endblock nav %}
